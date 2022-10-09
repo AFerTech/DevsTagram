@@ -16,7 +16,7 @@
 
             <nav class="flex gap-2 items-center">
                 <a href="#" class="font-bold uppercase text-gray-600 text-sm">Login</a>
-                <a href="#" class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>
+                <a href="/crear-cuenta" class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>
             </nav>
 
             </div>
@@ -29,7 +29,7 @@
             </h2>
             @yield('contenido')
         </main> {{--Fin del main--}}
-        <footer class="text-center p-5 text-gray-500 font-bold uppercase">
+        <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10">
             DevsTagram - Todos los Derechos Reservados 
             {{now ()->year}}
         </footer> {{--Fin del footer--}}
