@@ -11,4 +11,21 @@ class RegistrerController extends Controller
      {
         return view('auth.registrer');
      }
+     public function store (Request $request)
+     {
+      //   dd($request);
+         // dd($request->get('username'));
+
+         // Validacion
+         $this->validate($request,[
+            'name'     => 'required|min:5',
+            'username' => '',
+            'email'    => '',
+            'password' => '',
+            'password_confirmation' =>''
+
+         
+         ]);
+
+     }
 }
