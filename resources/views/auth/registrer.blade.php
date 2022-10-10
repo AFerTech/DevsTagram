@@ -22,13 +22,18 @@
                     id="name"
                     name="name"
                     placeholder="Nombre"
-                    class="border p-3 w-full rounded-lg">
+                    class="border p-3 w-full rounded-lg @error('name')
+                    border-red-600
+                    @enderror"
+                    value="{{old ('name')}}"
+                    />
+
                     
                     @error('name')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                     {{$message}}
                     </p>
-                @enderror
+                    @enderror
                 
                 </div>
 
@@ -41,8 +46,18 @@
                     id="username"
                     name="username"
                     placeholder="Nombre de Usuario"
-                    class="border p-3 w-full rounded-lg">
+                    class="border p-3 w-full rounded-lg
+                    @error('username')
+                    border-red-600
+                    @enderror
+                    "/>
                 </div>
+
+                    @error('username')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}
+                    </p>
+                    @enderror
 
                 <div class="mb-5x">
                     <label for="email"  class="mb-2 block uppercase text-gray-500 font-bold">
@@ -53,8 +68,18 @@
                     id="email"
                     name="email"
                     placeholder="Correo"
-                    class="border p-3 w-full rounded-lg">
+                    class="border p-3 w-full rounded-lg
+                    @error('email')
+                    border-red-600
+                    @enderror
+                    "/>
                 </div>
+                @error('email')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}
+                    </p>
+                    @enderror
+                
 
                 <div class="mb-5x">
                     <label for="password"  class="mb-2 block uppercase text-gray-500 font-bold">
@@ -65,8 +90,17 @@
                     id="password"
                     name="password"
                     placeholder="Contraseña"
-                    class="border p-3 w-full rounded-lg">
+                    class="border p-3 w-full rounded-lg
+                    @error('password')
+                    border-red-600
+                    @enderror
+                    "/>
                 </div>
+                @error('password')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}
+                    </p>
+                    @enderror
 
                 <div class="mb-5x">
                     <label for="password_confirmation"  class="mb-2 block uppercase text-gray-500 font-bold">
@@ -79,7 +113,7 @@
                     placeholder="Repetir contraseña"
                     class="border p-3 w-full rounded-lg">
                 </div>
-
+            
                 <input 
                 type="submit" 
                 value="Crear cuenta" 
