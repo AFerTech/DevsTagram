@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,6 +18,10 @@ class RegistrerController extends Controller
      {
       //   dd($request);
          // dd($request->get('username'));
+
+         // Modificar el request
+         $request->request->add(['username' => Str::slug($request->username)]);
+
 
          // Validacion
          $this->validate($request,[
