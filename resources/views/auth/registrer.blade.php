@@ -26,15 +26,12 @@
                     border-red-600
                     @enderror"
                     value="{{old ('name')}}"
-                    />
-
-                    
+                    />                    
                     @error('name')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                     {{$message}}
                     </p>
                     @enderror
-                
                 </div>
 
                 <div class="mb-5x">
@@ -49,8 +46,10 @@
                     class="border p-3 w-full rounded-lg
                     @error('username')
                     border-red-600
-                    @enderror
-                    "/>
+                    @enderror"
+                    value="{{old ('username')}}"
+                    />
+
                 </div>
 
                     @error('username')
@@ -71,10 +70,11 @@
                     class="border p-3 w-full rounded-lg
                     @error('email')
                     border-red-600
-                    @enderror
-                    "/>
+                    @enderror"
+                    value="{{old ('email')}}"
+                    />
                 </div>
-                @error('email')
+                    @error('email')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                     {{$message}}
                     </p>
@@ -96,7 +96,7 @@
                     @enderror
                     "/>
                 </div>
-                @error('password')
+                    @error('password')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                     {{$message}}
                     </p>
@@ -111,8 +111,17 @@
                     id="password_confirmation"
                     name="password_confirmation"
                     placeholder="Repetir contraseña"
-                    class="border p-3 w-full rounded-lg">
+                    class="border p-3 w-full rounded-lg
+                    @error('password_confirmation')
+                    border-red-600
+                    @enderror
+                    "/>
                 </div>
+                    @error('password_confirmation')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}
+                    </p>
+                    @enderror
             
                 <input 
                 type="submit" 
