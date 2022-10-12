@@ -41,7 +41,13 @@ class RegistrerController extends Controller
             'email' => $request->email,
             'password' =>Hash::make($request->password)
          ]);
-
+         // autenticar usuario
+         // auth()->attempt([
+         //    'email' => $request->email,
+         //    'password' =>$request->password
+         // ]);
+         // forma 2
+         auth()->attempt($request->only('email', 'password'));
          // redireccionar 
          return redirect()->route('posts.index');
      }
