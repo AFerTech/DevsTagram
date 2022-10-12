@@ -64,13 +64,20 @@
                     {{$message}}
                     </p>
                     @enderror
-            
+                
+
+                <div class="mb-5">
+                    <input type="checkbox" name="remember"> 
+                    <label for="remember" class="text-gray-500 text-sm">Mantener sesión abierta</label> 
+                </div>
                 <input 
                 type="submit" 
                 value="Iniciar Sesión" 
                 class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer
                 uppercase font-bold w-full p-3 text-white rounded-lg mt-10"
                 />
+
+
             </form>
         </div>
     </div>
