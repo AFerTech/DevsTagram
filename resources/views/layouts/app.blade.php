@@ -13,12 +13,23 @@
 
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-black">DevsTagram</h1>
+                @auth
+                <nav class="flex gap-2 items-center">
+                    <a href="#" class="font-bold  text-gray-600 text-sm">
+                        <span class="font-normal">{{auth()->user()->username}}</span>
+                    </a>
+                    <a href="{{route('logout')}}" class="font-bold uppercase text-gray-600 text-sm">
+                        Cerrar Sesión
+                    </a>
+                </nav>
+                @endauth
 
-            <nav class="flex gap-2 items-center">
-                <a href="{{route ('login')}}" class="font-bold uppercase text-gray-600 text-sm">Login</a>
-                <a href="{{route('register')}}" class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>
-            </nav>
-
+                @guest
+                <nav class="flex gap-2 items-center">
+                    <a href="{{route ('login')}}" class="font-bold uppercase text-gray-600 text-sm">Login</a>
+                    <a href="{{route('register')}}" class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>
+                </nav>
+                @endguest
             </div>
 
         </header>  {{--Fin del Header--}}

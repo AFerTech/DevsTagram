@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrerController;
 use Illuminate\Support\Facades\Route;
@@ -18,12 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('principal');
-});
+})->name('principal');
 Route::get('/crear-cuenta', [RegistrerController::class, 'index'])->name('register');
 Route::post('/crear-cuenta', [RegistrerController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
+Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 
 
 Route::get('/muro',          [PostController::class, 'index'])->name('posts.index');
