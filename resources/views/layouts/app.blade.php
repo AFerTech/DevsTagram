@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{-- <link rel="stylesheet" href="{{ asset('/css/app.css') }}"> --}}
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
         <title>DevsTagram - @yield('titulo')</title>
-        <script src=" {{ asset('js/app.js') }}" defer></script>
+        {{-- <script src=" {{ asset('js/app.js') }}" defer></script> --}}
     </head>
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
