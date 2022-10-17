@@ -49,6 +49,8 @@ class RegistrerController extends Controller
          // forma 2
          auth()->attempt($request->only('email', 'password'));
          // redireccionar 
-         return redirect()->route('posts.index');
+         return redirect()->route('posts.index',[
+            auth()->user()->username
+         ]);
      }
 }
