@@ -42,12 +42,12 @@
                     @enderror
                 </div> {{--titulo--}}
                 <div class="mb-5x">
-                    <label for="descricion"  class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="descripcion"  class="mb-2 block uppercase text-gray-500 font-bold">
                         Descripción
                     </label>
                     <textarea 
-                    id="descricion"
-                    name="descricion"
+                    id="descripcion"
+                    name="descripcion"
                     placeholder="Descripción"
                     class="border p-3 w-full rounded-lg @error('descripcion')
                     border-red-600
