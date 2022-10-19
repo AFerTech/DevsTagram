@@ -19,7 +19,7 @@
             </form>
         </div>
         <div class="md:w-1/2 px-10 bg-white p-6 rounded-lg shadow-2xl mt-10 md:mt-0">
-            <form action="{{route('register')}}" method="POST" >
+            <form action="{{route('posts.store')}}" method="POST" >
                 @csrf
                 <div class="mb-5x">
                     <label for="titulo"  class="mb-2 block uppercase text-gray-500 font-bold">
@@ -52,13 +52,26 @@
                     class="border p-3 w-full rounded-lg @error('descripcion')
                     border-red-600
                     @enderror"
-                    >{{old ('descricion')}}</textarea>                    
-                    @error('descricion')
+                    >{{old ('descripcion')}}</textarea>                    
+                    @error('descripcion')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                     {{$message}}
                     </p>
                     @enderror
                 </div>  {{--descripcion--}}
+                <div class="mb-5">
+                    <input 
+                    type="hidden" 
+                    name="img"
+                    value="{{old ('img')}}"
+                    />
+
+                    @error('img')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}
+                    </p>
+                    @enderror
+                </div>
                 <input 
                 type="submit" 
                 value="Publicar" 
