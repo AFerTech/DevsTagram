@@ -15,8 +15,10 @@ class PostController extends Controller
     }
     public function index(User $user)
     {
+        $posts = Post::where('user_id', $user->id)->get();
         return view('dashboard',[
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
     public function create()
@@ -32,7 +34,14 @@ class PostController extends Controller
             'img' => 'required',
         ]);
 
-        Post::create([
+        // Post::create([
+        //     'titulo' => $request->titulo,
+        //     'descripcion' => $request->descripcion,
+        //     'img' => $request->img,
+        //     'user_id' => auth()->user()->id
+        // ]);
+
+        $request->user()->posts()->create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion,
             'img' => $request->img,

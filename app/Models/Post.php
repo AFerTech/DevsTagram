@@ -15,4 +15,12 @@ class Post extends Model
         'img',
         'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)->select([
+            'name',
+            'username'
+        ]);
+    }
 }
