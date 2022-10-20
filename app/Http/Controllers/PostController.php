@@ -49,10 +49,11 @@ class PostController extends Controller
         ]);
         return redirect()->route('posts.index', auth()->user()->username);
     }
-    public function show(Post $post)
+    public function show(User $user, Post $post)
     {
         return view('post.show',[
-            'post' => $post
+            'post' => $post,
+            'user' => $user
         ]);
     }
 }
