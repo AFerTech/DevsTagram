@@ -6,7 +6,7 @@
 
 
 @section('contenido')
-    <div class="container mx-auto flex">
+    <div class="container mx-auto md:flex">
         <div class="md:w-1/2">
             <img src="{{asset('uploads') . '/'. $post->img}}" alt="Imagen publicación {{ $post->titulo}}"/>
             <div class="p-3">
@@ -29,8 +29,13 @@
             <div class="shadow bg-white p-5 mb-5">
                 {{-- <p class="text-xl font-bold text-center mb-4">Comentar</p> --}}
                 @auth
-                    
-                <form action="">
+                    @if(session('mensaje'))
+                        <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-bold">
+                            {{session('mensaje')}}
+                        </div>
+                    @endif
+                <form action="{{route ('comentarios.store', ['post' => $post, 'user' => $user]) }}" method="POST">
+                    @csrf
                     <div class="mb-5x">
                         <label for="comentario"  class="mb-2 block uppercase text-gray-500 font-bold">
                             Comentar
@@ -39,9 +44,7 @@
                         id="comentario"
                         name="comentario"
                         placeholder="Agrega un comentario"
-                        class="border p-3 w-full rounded-lg @error('comentario')
-                        border-red-600
-                        @enderror"
+                        class="border p-3 w-full rounded-lg @error('comentario') border-red-600 @enderror"
                         ></textarea>                    
                         @error('comentario')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
