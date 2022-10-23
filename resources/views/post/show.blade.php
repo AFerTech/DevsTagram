@@ -23,6 +23,17 @@
                     {{$post->descripcion}}
                 </p>
             </div>
+
+            @auth
+            @if($post->use_id === auth()->user()->id)
+            <form action="">
+                <input type="submit"
+                value="Eliminar"
+                class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursos-pointer"
+                />
+            </form>
+            @endif
+            @endauth
         </div>
 
         <div class="md:w-1/2 p-5">
