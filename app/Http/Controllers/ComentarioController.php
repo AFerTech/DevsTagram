@@ -22,6 +22,6 @@ class ComentarioController extends Controller
             'comentario' => $request->comentario
         ]);
         // mostrando
-        return back()->with('mensaje', 'Comentario agregado');
+        return back()->with('mensaje', 'Comentario agregado');  
     }
 }

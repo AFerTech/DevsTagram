@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use FFI\Exception;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -59,6 +61,17 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        dd('Elimanando', $post->id);
+        
+        $this->authorize('delete', $post);
+
+        $post->delete();
+        // Eliminar IMG
+
+        $imagen_path = public_path('uploads/' . $post->img);
+
+        if(File::exists($imagen_path)){
+            unlink($imagen_path);
+        }
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }

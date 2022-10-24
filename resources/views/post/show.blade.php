@@ -25,8 +25,10 @@
             </div>
 
             @auth
-            @if($post->use_id === auth()->user()->id)
-            <form action="">
+            @if($post->user_id === auth()->user()->id)
+            <form action="{{route ('posts.destroy', $post) }}" method="POST">
+                @method('DELETE')
+                @csrf
                 <input type="submit"
                 value="Eliminar"
                 class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursos-pointer"
