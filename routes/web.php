@@ -24,30 +24,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('principal');
 })->name('principal');
+
+// Crear cuenta
 Route::get('/crear-cuenta', [RegistrerController::class, 'index'])->name('register');
 Route::post('/crear-cuenta', [RegistrerController::class, 'store']);
-
+// Login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
-
-
-Route::get('/{user:username}',[PostController::class, 'index'])->name('posts.index');
+// Editar Perfil
+Route::get('/editar-perfil', [PerfilController::class, 'index'])->name('perfil.index');
+Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
+// Publicaciones
 Route::get('/posts/create',[PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/{user:username}',[PostController::class, 'index'])->name('posts.index');
 Route::get('/{user:username}/posts/{post}',[PostController::class, 'show'])->name('posts.show');
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy') ;
-
+// Comentarios
 Route::post('/{user:username}/posts/{post}',[ComentarioController::class, 'store'])->name('comentarios.store');
-
-
+// IMG
 Route::post('/imagenes',[ImagenController::class, 'store'])->name('imagenes.store');
-
+// Likes
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes,store');
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes,destroy');
 
-Route::get('{user:username}/editar-perfil', [PerfilController::class, 'index'])->name('perfil.index');
-Route::post('{user:username}/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
 
 
 
