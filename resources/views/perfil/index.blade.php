@@ -10,7 +10,9 @@
 @section('contenido')
     <div class="md:flex md:justify-center">
         <div class="md:w-1/2 bg-white shadow p-6">
-            <form action="" class="mt-10 md:mt-0">
+            <form action="{{route ('perfil.store')}}" method="POST" class="mt-10 md:mt-0"
+            enctype="multipart/form-data">
+            @csrf
                 <div class="mb-5x">
                     <label for="username"  class="mb-2 block uppercase text-gray-500 font-bold">
                         UserName
@@ -34,13 +36,13 @@
                     @enderror
 
                     <div class="mb-5x">
-                        <label for="imagen"  class="mb-2 block uppercase text-gray-500 font-bold">
+                        <label for="img"  class="mb-2 block uppercase text-gray-500 font-bold">
                             Imagen Perfil
                         </label>
                         <input 
                         type="file"
-                        id="imagen"
-                        name="imagen"
+                        id="img"
+                        name="img"
                         class="border p-3 w-full rounded-lg"
                         accept=".jpg, .jpeg, .png"
                         />
