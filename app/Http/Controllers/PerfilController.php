@@ -49,7 +49,7 @@ class PerfilController extends Controller
         $usuario = User::find(auth()->user()->id);
 
         $usuario->username = $request->username;
-        $usuario->img = $nombreImg ?? '';
+        $usuario->img = $nombreImg ?? auth()->user()->img ?? null;
         $usuario->save();
 
         // Redireccion
