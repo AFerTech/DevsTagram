@@ -41,7 +41,7 @@
                 <p class="text-gray-800 text-sm mb-3 font-bold">
                     0
                     <span class="font-normal">
-                        Seguidores
+                        Siguiendo
                     </span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
@@ -50,6 +50,24 @@
                         Publicaciones
                     </span>
                 </p>
+                @auth
+                <form action="" method="POST">
+                    @csrf
+                    <input 
+                    type="submit"
+                    class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-sm font-bold cursor-pointer"
+                    value="Seguir"
+                    />
+                </form> {{--btn Seguir--}}
+                <form action="" method="POST">
+                    @csrf
+                    <input 
+                    type="submit"
+                    class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-sm font-bold cursor-pointer"
+                    value="Dejar de Seguir"
+                    />
+                </form> {{--btn Dejar de Seguir--}}
+                @endauth
             </div>
         </div>
     </div>
