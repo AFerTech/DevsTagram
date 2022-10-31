@@ -57,11 +57,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
     }
+    // Almacenar  los que se siguen
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, 'followers','follower_id', 'user_id');
+    }
     // Comprobar si ya se sigue a un usuario
     public function siguiendo(User $user)
     {
         return $this->followers->contains($user->id);
     }
-    // Almacenar  los que se siguen
+    
     
 }
