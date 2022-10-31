@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostController;
@@ -17,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('principal');
-})->name('principal');
+// Muro
+Route::get('/', HomeController::class)->name('home');
+
+
 Route::get('/crear-cuenta', [RegistrerController::class, 'index'])->name('register');
 Route::post('/crear-cuenta', [RegistrerController::class, 'store']);
 
